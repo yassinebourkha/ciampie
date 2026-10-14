@@ -5,10 +5,10 @@ export const site = {
   phoneHref: 'tel:+33442461696',
   address: ['3 rue de la Glacière', 'ZI Bagnols', '13127 Vitrolles'],
   city: 'Vitrolles',
-  // Aucun domaine de publication ni destinataire inventé.
-  siteUrl: '',
+  // Domaine du site de démonstration hébergé sur Sites.
+  siteUrl: 'https://ciampie-demo.wittysmile32.chatgpt.site',
   quoteEmail: '',
-  indexable: false
+  indexable: true
 };
 
 export const pages = [

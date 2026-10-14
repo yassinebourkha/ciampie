@@ -16,9 +16,9 @@ test('six pages distinctes et liens de devis cohérents', () => {
   assert.throws(() => href('inconnue'));
 });
 
-test('le développement ne publie pas de domaine ou destinataire inventé', () => {
-  assert.equal(site.indexable, false);
-  assert.equal(site.siteUrl, '');
+test('le domaine du site public et l’absence de destinataire de devis sont configurés', () => {
+  assert.equal(site.indexable, true);
+  assert.equal(site.siteUrl, 'https://ciampie-demo.wittysmile32.chatgpt.site');
   assert.equal(site.quoteEmail, '');
 });
 
@@ -46,7 +46,13 @@ test('build complet, métadonnées, assets et navigation sans liens cassés', as
   await build();
   await check();
   const robots = await readFile(join(dist, 'robots.txt'), 'utf8');
-  assert.match(robots, /Disallow: \//);
+  assert.match(robots, /Allow: \//);
+  assert.match(robots, /Sitemap: https:\/\/ciampie-demo\.wittysmile32\.chatgpt\.site\/sitemap\.xml/);
+  const sitemap = await readFile(join(dist, 'sitemap.xml'), 'utf8');
+  assert.equal((sitemap.match(/<loc>/g) ?? []).length, pages.length);
+  const home = await readFile(join(dist, 'index.html'), 'utf8');
+  assert.match(home, /<meta name="robots" content="index,follow">/);
+  assert.match(home, /<link rel="canonical" href="https:\/\/ciampie-demo\.wittysmile32\.chatgpt\.site\//);
   const html = await readFile(join(dist, 'demande-de-devis/index.html'), 'utf8');
   assert.match(html, /type="submit" disabled/);
   assert.match(html, /id="recapitulatif" hidden/);
