@@ -92,9 +92,11 @@ export function quoteForm() {
 
 export function layout(page, content) {
   const canonical = site.siteUrl ? `<link rel="canonical" href="${escape(new URL(href(page.key), site.siteUrl).href)}">` : '';
+  const verification = page.key === 'home' ? '<meta name="google-site-verification" content="34vc0X_Fm8bx7qKnEd_Tdbwrt4MWVh-GpuUphUgFRV8">' : '';
   return `<!doctype html>
 <html lang="fr"><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  ${verification}
   <title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">
   <meta name="robots" content="${site.indexable ? 'index,follow' : 'noindex,nofollow'}">
   <meta name="theme-color" content="#292929">${canonical}
