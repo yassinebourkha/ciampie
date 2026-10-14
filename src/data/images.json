@@ -1,0 +1,18 @@
+{
+  "hero": {
+    "width": 1280,
+    "height": 720
+  },
+  "transport": {
+    "width": 1280,
+    "height": 960
+  },
+  "levage": {
+    "width": 1280,
+    "height": 960
+  },
+  "stockage": {
+    "width": 1280,
+    "height": 960
+  }
+}
