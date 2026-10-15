@@ -53,6 +53,8 @@ test('build complet, métadonnées, assets et navigation sans liens cassés', as
   const home = await readFile(join(dist, 'index.html'), 'utf8');
   assert.match(home, /<meta name="robots" content="index,follow">/);
   assert.match(home, /<link rel="canonical" href="https:\/\/ciampie-demo\.wittysmile32\.chatgpt\.site\//);
+  assert.doesNotMatch(home, /<figcaption>|Illustration IA|Images IA|visuel provisoire/i);
+  assert.match(home, /alt="Camion-grue vert dans un dépôt industriel"/);
   const html = await readFile(join(dist, 'demande-de-devis/index.html'), 'utf8');
   assert.match(html, /type="submit" disabled/);
   assert.match(html, /id="recapitulatif" hidden/);

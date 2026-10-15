@@ -86,7 +86,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hero-copy .button { align-self: flex-start; }
 .image-tile { padding: 0; display: flex; flex-direction: column; color: var(--inverse); background: var(--field); }
 .image-window { overflow: hidden; flex: 1; min-height: 0; background: var(--field); }
-figcaption { min-height: 36px; padding: 8px 16px; background: var(--field); color: var(--inverse); font-size: var(--small); line-height: 1.4; }
 .hero-photo { grid-column: 6/13; grid-row: 1; }
 .hero-photo img { object-position: 50% 60%; }
 .hero-detail { grid-column: 6/10; grid-row: 2; }
@@ -209,7 +208,6 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
   .hero-link { grid-column: 2/3; grid-row: 3; padding: 20px; }
   .hero-link .lead { font-size: 24px; }
   .hero-link span:last-child { font-size: 16px; }
-  figcaption { font-size: 13px; padding: 8px 12px; }
   .service-hero h1 { font-size: 44px; }
   .service-hero .hero-copy .lead { font-size: 22px; }
   .service-hero .hero-detail { grid-column: 1/-1; }

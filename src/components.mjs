@@ -16,8 +16,7 @@ export function photo(key, alt, images, classes = '', priority = false) {
       srcset="/assets/images/${key}-640.webp 640w, /assets/images/${key}-1280.webp 1280w"
       sizes="(max-width: 900px) 100vw, 60vw" width="${width}" height="${height}"
       ${priority ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"
-      alt="${escape(alt)}, illustration IA"></div>
-    <figcaption>Illustration IA · visuel provisoire</figcaption>
+      alt="${escape(alt)}"></div>
   </figure>`;
 }
 
@@ -43,7 +42,7 @@ export function footer() {
     </nav>
     <div class="tile footer-note"><address>${site.address.map(escape).join('<br>')}</address>
       <a href="${site.phoneHref}">${escape(site.phone)}</a>
-      <p>Version de travail locale. Textes, coordonnées et prestations à valider avant publication. Images IA illustratives.</p>
+      <p>Version de travail locale. Textes, coordonnées et prestations à valider avant publication.</p>
       <a href="#contenu">Retour en haut</a>
     </div>
   </footer>`;
